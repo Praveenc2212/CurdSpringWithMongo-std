@@ -1,6 +1,7 @@
 package com.kce.studentmanage.service;
 
 import com.kce.studentmanage.exceptions.StudentNotFoundException;
+import com.kce.studentmanage.interfaces.StudentServices;
 import com.kce.studentmanage.model.Student;
 import com.kce.studentmanage.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentService {
+public class StudentService implements StudentServices {
 
     @Autowired
     StudentRepository studentRepository;
