@@ -27,9 +27,12 @@ public class StudentService implements StudentServices {
 
         return students;
     }
-    public Student findById(String id){
+    public ResponseEntity<?> findById(String id){
         Optional<Student> student = studentRepository.findById(id);
-        return student.get();
+        if(student.isPresent()){
+            return new ResponseEntity<>(student.get(),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     public Student getStudentByEmail(String email){
 
